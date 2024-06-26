@@ -11,6 +11,29 @@
         "type": "git",
         "url": "git+https://github.com/AmazingJS-cn/baseline-widget-vue.git"
     },
+    "keywords": [
+        "baseline",
+        "baseline2024",
+        "vue3",
+        "vue",
+        "vuejs"
+    ],
+    "main": "./dist/baseline-widget-vue.umd.cjs",
+    "module": "./dist/baseline-widget-vue.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/baseline-widget-vue.js",
+            "require": "./dist/baseline-widget-vue.umd.cjs"
+        },
+        "./dist/style.css": {
+            "import": "./dist/style.css",
+            "require": "./dist/style.css"
+        }
+    },
+    "peerDependencies": {
+        "vue": "^3.4.21"
+    },
     "scripts": {
         "dev": "vite",
         "build": "run-p type-check \"build-only {@}\" --",
