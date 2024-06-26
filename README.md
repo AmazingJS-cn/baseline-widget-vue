@@ -1,39 +1,81 @@
 # baseline-widget-vue
 
-This template should help get you started developing with Vue 3 in Vite.
+Display beautiful Baseline browser feature support on your pages.
 
-## Recommended IDE Setup
+<img src="./demo/assets/light.png" style="max-width: 400px"/>
+<img src="./demo/assets/dark.png" style="max-width: 400px"/>
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+It supports dark mode and also supports automatic adaptation of pad and mobile phone screen.
 
-## Type Support for `.vue` Imports in TS
+<img src="./demo/assets/mobo1.png" style="max-height: 150px"/>
+<img src="./demo/assets/mobo2.png" style="max-height: 150px"/>
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## How to use
 
-## Customize configuration
+This widget is only support Vue3.0+
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+1. install it:
 
 ```sh
-npm install
+npm i -D baseline-widget-vue
 ```
 
-### Compile and Hot-Reload for Development
+2. import it where you need
 
-```sh
-npm run dev
+```js
+import { BaselineWidget } from 'baseline-widget-vue'
 ```
 
-### Type-Check, Compile and Minify for Production
+3. use this component in your template
 
-```sh
-npm run build
+```html
+<BaselineWidget type="high" baseline="2023" title="Newly available across major browsers" />
+
+<BaselineWidget
+    baseline="2024"
+    title="Newly available across major browsers"
+    :broswerSupports="broswer"
+>
+    Since April 2023, this feature works across the latest devices and browser versions. This
+    feature might not work in older devices or browsers.
+</BaselineWidget>
+
+<BaselineWidget
+    type="limited"
+    baseline="2024"
+    title="Not supported by most browsers"
+    :broswerSupports="false"
+/>
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Props list
 
-```sh
-npm run lint
+TODO
+
+```ts
+export type BaselineWidgetProps = {
+    type?: 'high' | 'limited' | 'low'
+    // 2023 '2024'
+    baseline?: string | number
+    title?: string
+    content?: string
+    showContent?: boolean
+    // broswerSupports: true
+    // edge:true  chrome:116  firefox:false
+    broswerSupports?: BroswerSupportsType
+    dark?: boolean
+    fold?: boolean
+    foldCtrl?: boolean
+}
+
+export type BroswerSupportsType =
+    | {
+          // broswerSupports: true
+          // edge:true  chrome:116  firefox:false
+          chrome?: string | number | boolean
+          edge?: string | number | boolean
+          safari?: string | number | boolean
+          firefox?: string | number | boolean
+      }
+    | boolean
 ```
