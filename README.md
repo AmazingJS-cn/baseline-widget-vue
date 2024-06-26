@@ -2,22 +2,24 @@
 
 Display beautiful Baseline browser feature support on your pages.
 
+It supports dark mode.
+
 <img src="./demo/assets/light.png" style="max-width: 400px"/>
 <img src="./demo/assets/dark.png" style="max-width: 400px"/>
 
-It supports dark mode and also supports automatic adaptation of pad and mobile phone screen.
+And also supports automatic adaptation of pad and mobile phone screen.
 
 <img src="./demo/assets/mobo1.png" style="max-height: 150px"/>
 <img src="./demo/assets/mobo2.png" style="max-height: 150px"/>
 
 ## How to use
 
-This widget is only support Vue3.0+
+This widget is only support Vue3.0+, React is comming soon.
 
 1. install it:
 
 ```sh
-npm i -D baseline-widget-vue
+npm i -S baseline-widget-vue
 ```
 
 2. import it where you need
