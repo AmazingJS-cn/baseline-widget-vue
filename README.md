@@ -26,6 +26,7 @@ npm i -S baseline-widget-vue
 
 ```js
 import { BaselineWidget } from 'baseline-widget-vue'
+import 'baseline-widget-vue/dist/style.css'
 ```
 
 3. use this component in your template
