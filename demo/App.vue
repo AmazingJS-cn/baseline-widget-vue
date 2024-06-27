@@ -33,6 +33,7 @@ const broswer2 = {
     <div class="dark">
         <div class="wrapper">
             <BaselineWidget dark type="high" baseline="2023" title="Newly available across major browsers">
+                <slot></slot>
             </BaselineWidget>
             <br>
             <BaselineWidget dark baseline="2024" title="Newly available across major browsers"

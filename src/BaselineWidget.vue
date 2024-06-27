@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import './images/iconfont';
-import { ref, computed, useSlots, defineProps } from 'vue';
+import { ref, useSlots } from 'vue';
 import { type BroswerSupportsType } from './BlBroswerList.vue';
 import BlIcon from './BlIcon.vue';
 import BlBroswerList from './BlBroswerList.vue';
@@ -55,20 +55,28 @@ const props = withDefaults(defineProps<BaselineWidgetProps>(), {
 });
 
 const slots = useSlots();
-const showSlot = ref(!!slots['default']);
+const showSlot = ref(false);
 const contentFolded = ref(props.fold);
 
 // 在slot里面的所有内容均为空的时候，也要隐藏
-if (slots.default && slots.default().every(i => {
-    let slotType = (typeof i.type === 'symbol' ? String(i.type) : i.type);
-    // 注释类型的节点
-    if (slotType === 'Symbol(v-cmt)' || slotType === 'v-cmt' || slotType === 'comment') {
-        return true;
+// if (slots.default && slots.default().every(i => {
+//     let slotType = (typeof i.type === 'symbol' ? String(i.type) : i.type);
+//     // 注释类型的节点
+//     if (slotType === 'Symbol(v-cmt)' || slotType === 'v-cmt' || slotType === 'comment') {
+//         return true;
+//     }
+//     return false;
+// })) {
+//     showSlot.value = false;
+// }
+
+// 如果slot里面有内容，则展示 content
+// console.log(slots.default?.()?.[0].children?.length)
+slots.default?.()?.every(i => {
+    if (i?.children?.length) {
+        showSlot.value = true;
     }
-    return false;
-})) {
-    showSlot.value = false;
-}
+})
 
 function toggleFold() {
     contentFolded.value = !contentFolded.value;

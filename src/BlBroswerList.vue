@@ -36,7 +36,7 @@ const props = withDefaults(defineProps<{
     broswerSupports: true
 });
 
-console.log(props.broswerSupports, typeof props.broswerSupports);
+// console.log(props.broswerSupports, typeof props.broswerSupports);
 
 const broswerList = ref({
     chrome: true,
@@ -56,7 +56,7 @@ if (props.broswerSupports === false) {
         broswerList.value[key] = props.broswerSupports[key];
     }
 }
-console.log(broswerList.value)
+// console.log(broswerList.value)
 
 </script>
 
