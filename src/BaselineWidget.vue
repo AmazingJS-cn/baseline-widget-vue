@@ -37,7 +37,6 @@ export type BaselineWidgetProps = {
     baseline?: string | number
     title?: string
     content?: string
-    showContent?: boolean
     // broswerSupports: true
     // edge:true  chrome:116  firefox:false
     broswerSupports?: BroswerSupportsType
@@ -105,23 +104,23 @@ function toggleFold() {
     }
 
     &.bl-dark-mode {
-        background: rgb(17, 42, 85);
-        color: #fff;
+        background: rgb(5, 21, 48);
+        color: rgba(240, 240, 240, 0.7);
 
         .bl-content {
-            color: rgba(240, 240, 240, 0.7)
+            color: rgba(240, 240, 240, 0.5)
         }
 
         &.bl-high-support {
-            background: rgb(8, 49, 16);
+            background: rgb(2, 33, 8);
         }
 
         &.bl-limited-support {
-            background: rgb(51, 41, 7);
+            background: rgb(43, 34, 3);
         }
 
         .bl-fold-ctrl {
-            fill: #fff;
+            fill: #ddd;
         }
     }
 
@@ -174,6 +173,7 @@ function toggleFold() {
     font-size: 16px;
     padding-top: 12px;
     padding-bottom: 5px;
+    padding-right: 20px;
     line-height: 1.5;
     color: rgba(60, 60, 60, 0.7);
 }

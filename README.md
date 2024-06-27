@@ -62,7 +62,6 @@ export type BaselineWidgetProps = {
     baseline?: string | number
     title?: string
     content?: string
-    showContent?: boolean
     // broswerSupports: true
     // edge:true  chrome:116  firefox:false
     broswerSupports?: BroswerSupportsType
@@ -72,6 +71,7 @@ export type BaselineWidgetProps = {
 }
 
 export type BroswerSupportsType =
+    | boolean
     | {
           // broswerSupports: true
           // edge:true  chrome:116  firefox:false
@@ -80,5 +80,8 @@ export type BroswerSupportsType =
           safari?: string | number | boolean
           firefox?: string | number | boolean
       }
-    | boolean
 ```
+
+## Slot
+
+TODO
