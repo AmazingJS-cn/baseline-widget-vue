@@ -1,15 +1,11 @@
 <template>
     <div class="bl-title-broswer">
         <div class="bl-broswer-item" v-for="broswer in Object.keys(broswerList)" :key="broswer">
-            <svg class="bl-b-icon" aria-hidden="true">
-                <use :xlink:href="'#icon-' + broswer"></use>
-            </svg>
-            <svg v-if="broswerList[broswer] === true" class="bl-b-icon-check" aria-hidden="true">
-                <use xlink:href="#icon-check"></use>
-            </svg>
-            <svg v-else-if="broswerList[broswer] === false" class="bl-b-icon-check" aria-hidden="true">
-                <use xlink:href="#icon-error"></use>
-            </svg>
+            <img inert :src='iconList[broswer]' class="bl-b-icon" aria-hidden="true" />
+            <img inert v-if="broswerList[broswer] === true" :src='checkIcon' class="bl-b-icon-check"
+                aria-hidden="true" />
+            <img inert v-else-if="broswerList[broswer] === false" :src='errorIcon' class="bl-b-icon-check"
+                aria-hidden="true" />
             <span v-else class="bl-b-v">{{ broswerList[broswer] }}</span>
         </div>
     </div>
@@ -17,7 +13,20 @@
 
 
 <script setup lang="ts">
-import './images/iconfont';
+import checkIcon from './images/icon/check.svg';
+import errorIcon from './images/icon/error.svg';
+import edgeIcon from './images/icon/edge.svg';
+import chromeIcon from './images/icon/chrome.svg';
+import firefoxIcon from './images/icon/firefox.svg';
+import safariIcon from './images/icon/safari.svg';
+
+const iconList = {
+    chrome: chromeIcon,
+    firefox: firefoxIcon,
+    edge: edgeIcon,
+    safari: safariIcon,
+};
+
 import { ref } from 'vue';
 
 export type BroswerSupportsType = {

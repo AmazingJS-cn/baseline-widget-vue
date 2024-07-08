@@ -12,10 +12,8 @@
                     <span class="bl-title-text">{{ props.title }}</span>
                 </div>
                 <BlBroswerList :broswerSupports="props.broswerSupports"></BlBroswerList>
-                <svg class="bl-fold-ctrl" :class="{ 'bl-fold-ctrl-up': !contentFolded }" v-if="showSlot && foldCtrl"
-                    @click="toggleFold">
-                    <use xlink:href="#icon-down"></use>
-                </svg>
+                <img class="bl-fold-ctrl" :class="{ 'bl-fold-ctrl-up': !contentFolded }" v-if="showSlot && foldCtrl"
+                    :src="downIcon" @click="toggleFold" />
             </div>
             <div v-show="showSlot && !contentFolded" class="bl-content">
                 <slot>{{ content }}</slot>
@@ -25,11 +23,12 @@
 </template>
 
 <script setup lang="ts">
-import './images/iconfont';
+
 import { ref, useSlots } from 'vue';
 import { type BroswerSupportsType } from './BlBroswerList.vue';
 import BlIcon from './BlIcon.vue';
 import BlBroswerList from './BlBroswerList.vue';
+import downIcon from './images/icon/down.svg';
 
 export type BaselineWidgetProps = {
     type?: 'high' | 'limited' | 'low'
